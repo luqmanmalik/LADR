@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Solving Systems of Equations by Determinants \\ (Cramer's Rule)}
+\date{}
+\maketitle
+\begin{flushleft}
+Determinants are useful when solving third- and higher-order systems of equations. Every determinant represents a number. The {\bf{value of a second-order determinant}} is the product of the elements in its principal diagonal minus the product of the elements in its secondary diagonal.
+\linebreak
+\linebreak
+\linebreak
+{\large{{\bf{Value of a Second-Order Determinant}}}}
+\linebreak
+\[ \begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix} = a_{1}b_{1} \ - \ a_{2}b_{2} \]
+\linebreak
+\linebreak
+\linebreak
+{\large{1. Deriving Cramer's Rule}}
+\linebreak
+\linebreak
+Here I will use the definition of second-order determinant to solve a {\it{general}} second-order system of linear equations and derive Cramer's rule. Consider the system of equations
+\linebreak
+\begin{equation*} 
+(1) \ \ a_1 x + b_1 y = c_1
+\end{equation*}
+\begin{equation*}
+(2) \ \ a_2 x + b_2 y = c_2
+\end{equation*}
+\linebreak
+\linebreak
+To eliminate the variable $y$, we can multiply both sides of equation (1) by $b_2$ and both sides of equation (2) by $-b_1$ and then add.
+\linebreak
+\linebreak
+\[ \ \ b_2[a_1x + b_1y = c_1] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a_1b_2x + b_1b_2y = \ \ c_1b_2 \]
+\[ -b_1[a_2x + b_2y = c_2] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -a_2b_1x - b_1b_2y = -c_2b_1 \]
+\[ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \overline{(a_1b_2 - a_2b_1)x  \ \ \ \ \ \ \ \ \ \ = \ \ c_1b_2 - c_2b_1}\]
+\[ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x = \ \ \frac{c_1b_2 - c_2b_1}{a_1b_2 - a_2b_1} \]
+\linebreak
+\linebreak
+To eliminate the variable $x$, we can multiply both sides of equation (1) by $a_2$ and both sides of equation (2) by $-a_1$ and then add.
+\linebreak
+\linebreak
+\[ -a_2[a_1x + b_1y = c_1] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -a_1a_2x - a_2b_1y = -a_2c_1 \]
+\[ \ \ a_1[a_2x + b_2y = c_2] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a_1a_2x + a_1b_2y = \ \ a_1c_2 \]
+\[ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \overline{\ \ \ \ \ \ \ \ \ \ \ (a_2b_1 - a_1b_2)y = \ \ a_2c_1 - a_1c_2}\]
+\[ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y = \ \ \frac{a_2c_1 - a_1c_2}{a_2b_1 - a_1b_2} \]
+\linebreak
+\linebreak
+Both $x$ and $y$ have identical denominators, namely $a_1b_2 - a_2b_1$. Note that \[ \begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix} = a_{1}b_{2} \ - \ a_{2}b_{1} \]
+\linebreak
+\linebreak
+The numerator of the expression used to to find $x$ is $c_1b_2 - c_2b_1$. Note that
+\[ \begin{vmatrix} c_{1} & b_{1} \\ c_{2} & b_{2}\end{vmatrix} = c_{1}b_{2} \ - \ c_{2}b_{1} \]
+\linebreak
+\linebreak
+The numerator of the expression used to to find $y$ is $a_1c_2 - a_2c_1$. Note that
+\[ \begin{vmatrix} a_{1} & c_{1} \\ a_{2} & c_{2}\end{vmatrix} = a_{1}c_{2} \ - \ a_{2}c_{1} \]
+\linebreak
+\linebreak
+Using this information and making the appropriate substitutions, we can express both $x$ and $y$ as the quotient of two determinants. \[ x = \frac{c_1b_2 - c_2b_1}{a_1b_2 - a_2b_1} = \frac{\begin{vmatrix} c_{1} & b_{1} \\ c_{2} & b_{2}\end{vmatrix}}{\begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix}}, \ \ \ \ y = \ \ \frac{a_2c_1 - a_1c_2}{b_1a_2 - b_2a_1} = \frac{\begin{vmatrix} a_{1} & c_{1} \\ a_{2} & c_{2}\end{vmatrix}}{\begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix}} \]
+\linebreak
+\linebreak
+Hence we have arrived at Cramer's Rule for solving second order systems of linear equations.
+\linebreak
+\linebreak
+\boxed{\begin{array}{lcl} \\ \textrm{\underline{Cramer's Rule}} \\ \\ \textrm{For a system of equations of the form} \ \begin{cases}a_1x + b_1y = c_1 \\ a_2x + b_2y = c_2\end{cases} \\ \\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x = \frac{\begin{vmatrix} c_{1} & b_{1} \\ c_{2} & b_{2}\end{vmatrix}}{\begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix}} = \frac{D_x}{D} \ \ \ \ \ \textrm{and} \ \ \ \ \ y = \frac{\begin{vmatrix} a_{1} & c_{1} \\ a_{2} & c_{2}\end{vmatrix}}{\begin{vmatrix} a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix}} = \frac{D_y}{D} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\ \linebreak \end{array}}
+\linebreak
+\linebreak
+\linebreak
+\linebreak
+Henceforth we will denote the determinants as: \[D = \begin{vmatrix}a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix} \ \ \ \ \ \ \ D_x = \begin{vmatrix}c_{1} & b_{1} \\ c_{2} & b_{2}\end{vmatrix} \ \ \ \ \ \ \ D_y = \begin{vmatrix}a_{1} & c_{1} \\ a_{2} & c_{2}\end{vmatrix}\]
+\linebreak
+\linebreak
+So that we have \[x = \frac{D_x}{D} \ \ \ \ \ \ \ \textrm{and} \ \ \ \ \ \ \ y = \frac{D_y}{D}\]
+\linebreak
+\linebreak
+\linebreak
+{\large{2. Using Cramer's Rule}}
+\linebreak
+\linebreak
+Let's explore a few examples of using determinants to evaluate systems of linear equations. As we shall see, Cramer's Rule will prove to be far more efficient than the {\it{substitution}} and {\it{elimination}} methods.
+\linebreak
+\linebreak
+\linebreak
+2.1 Use determinants to evaluate the following system.
+\[\begin{cases}2x + y = 6 \\ 3x + y = 5\end{cases}\]
+\linebreak
+\linebreak
+Let $a_1 = 2, b_1 = 1, c_1 = 6, a_2 = 3, b_2 = 1, c_2 = 5$. We now find $D, D_x, D_y$.
+\[ \ \ \ \ D = \begin{vmatrix}a_{1} & b_{1} \\ a_{2} & b_{2}\end{vmatrix} = \begin{vmatrix}2 & 1 \\ 3 & 1\end{vmatrix} = 2(1) - 3(1) = -1\]
+\[D_x = \begin{vmatrix}c_{1} & b_{1} \\ c_{2} & b_{2}\end{vmatrix} = \begin{vmatrix}6 & 1 \\ 5 & 1\end{vmatrix} = 6(1) - 5(1) = 1\]
+\[ \ \ \ D_y = \begin{vmatrix}a_{1} & c_{1} \\ a_{2} & c_{2}\end{vmatrix} = \begin{vmatrix}2 & 6 \\ 3 & 5\end{vmatrix} = 2(5) - 3(6) = -8\]
+\linebreak
+\[ \ \ x = \frac{D_x}{D} = \frac{1}{-1} = -1\]
+\linebreak
+\[y = \frac{D_y}{D} = \frac{-8}{-1} = 8\]
+\linebreak
+Thus, our solution is $x$ = -1, $y$ = 8 or the ordered pair (-1, 8).     
+\end{flushleft}
+\end{document} the commutative ring of ezra is always in the forfront of the actual compund derivative. check the power set of utala anfd the pegasus is always get on board if the function of Bessel does not fit with it it wil automatically go with out sying that all dont get the only officer involved if the aleph not function over th emoon wiht something that all t Canto set oft 
